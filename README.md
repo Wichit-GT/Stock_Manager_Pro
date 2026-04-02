@@ -1,69 +1,143 @@
-# Stock Manager Pro (SMP) — V1
-สรุป
+📦 Stock Manager Pro
 
-แอปจัดการสต็อกสินค้าแบบเดสก์ท็อปเขียนด้วย Python + Tkinter
-ฟีเจอร์หลัก: สินค้า/หมวดหมู่, รับ/จ่ายสินค้า, ประวัติการเคลื่อนไหว, รายงาน PDF/CSV, นับสต็อก, ผู้ใช้งาน, หลักฐาน audit
-ฐานข้อมูล: SQLite (stock.db) เก็บไว้ในโฟลเดอร์โปรเจค
-ความต้องการระบบ
 
-Python 3.12+
-Virtualenv (แนะนำ)
-ไลบรารีที่ติดตั้ง (ดูตัวอย่างใน requirements.txt): Pillow, numpy, matplotlib, reportlab, qrcode, python-dateutil, ฯลฯ
-ติดตั้ง (ตัวอย่างคำสั่ง)
 
-bash
 
-# อยู่ในโฟลเดอร์โปรเจค
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-รันแอป
 
-bash
 
-# ในโฟลเดอร์ V1
-source venv/bin/activate
-python stock_manager.py   # หรือ python main.py ขึ้นกับไฟล์เริ่มต้นของเวอร์ชัน
-โครงสร้างไฟล์สำคัญ
 
-stock_manager.py / main.py — จุดเริ่มต้นของแอป
-shared.py — ฟังก์ชันช่วยเหลือ, DB init, theme, settings
-modules/ (หรือโฟลเดอร์ตามชื่อ) — โมดูลหน้าต่างต่างๆ (สินค้า, สต็อก, ขาย, ระบบ ฯลฯ)
-stock.db — ฐานข้อมูล SQLite (จะถูกสร้าง/อัพเดตโดย init_db())
-venv/ — virtual environment (ถาสร้างแล้ว)
-requirements.txt — รายการไลบรารี (มีอยู่แล้วในโปรเจค)
-การตั้งค่าเริ่มต้น
 
-ผู้ใช้เริ่มต้น: username admin / password admin123 (ถูกสร้างโดย init_db())
-การตั้งค่าระบบเก็บในตาราง shop_settings (สามารถแก้ผ่าน UI หรือโดยตรงใน DB)
-ฐานข้อมูลและมิเกรชัน
+ระบบจัดการสต็อกสินค้า (Inventory & POS System) แบบครบวงจร พัฒนาด้วย Python + Tkinter รองรับการขาย, คลังสินค้า, ลูกค้า และรายงานในโปรแกรมเดียว
 
-init_db() จะสร้างตารางพื้นฐานและพยายามเพิ่มคอลัมน์เสริม (แบบ idempotent)
-หากเพิ่มฟีเจอร์ใหม่ อย่าลืมเพิ่มโค้ดมิเกรชันใน shared.init_db()
-การสร้างรายงาน PDF/CSV
+✨ Features
+🧾 Point of Sale (POS)
+สร้างใบเสร็จแบบเรียลไทม์
+รองรับส่วนลด และการชำระเงินสด
+บันทึกยอดขายและรายการสินค้า
+📦 Inventory Management
+เพิ่ม / แก้ไข / ลบสินค้า
+รองรับหลายหน่วยและหลายราคา
+ตัดสต็อกอัตโนมัติ
+📊 Dashboard
+ยอดขายวันนี้ / เดือนนี้
+กำไร และจำนวนบิล
+สินค้าขายดี
+แจ้งเตือนสินค้าใกล้หมด
+📥📤 Stock Control
+รับสินค้าเข้า (Stock In)
+จ่ายสินค้าออก (Stock Out)
+บันทึกประวัติทุกการเคลื่อนไหว
+🏭 Supplier & Purchase Orders
+จัดการซัพพลายเออร์
+สร้างใบสั่งซื้อ (PO)
+ติดตามสถานะคำสั่งซื้อ
+👥 Customer System
+เก็บข้อมูลลูกค้า
+ระบบแต้มสะสม
+รองรับเครดิตลูกค้า
+🔄 Multi-Branch
+รองรับหลายสาขา
+โอนสินค้า (Stock Transfer)
+🔐 Authentication System
+ระบบ Login
+เข้ารหัสรหัสผ่าน (SHA-256)
+Role-based access (Admin / Staff)
+🧾 Reports & Export
+Export CSV
+Export PDF (optional)
+กราฟสถิติ (matplotlib)
+🏷️ Barcode System
+สร้าง Barcode (Code128)
+Export เป็น PNG / PDF
+🖥️ Screenshots (แนะนำให้เพิ่มเอง)
+/docs/screenshots/dashboard.png
+/docs/screenshots/pos.png
+/docs/screenshots/products.png
+🏗️ Tech Stack
+Layer	Technology
+Language	Python 3
+GUI	Tkinter
+Database	SQLite3
+Charts	matplotlib
+PDF Export	reportlab
+Image	Pillow
+📁 Project Structure
+.
+├── stock_manager.py   # Main application
+├── stock.db           # SQLite database (auto-generated)
+└── README.md
+⚙️ Installation
+1. Clone Repository
+git clone https://github.com/your-username/stock-manager-pro.git
+cd stock-manager-pro
+2. Install Dependencies (Optional)
+pip install matplotlib reportlab pillow
+▶️ Usage
+python stock_manager.py
+🔐 Default Credentials
+Username	Password
+admin	admin123
 
-ต้องติดตั้ง reportlab สำหรับ PDF (pip install reportlab)
-ฟังก์ชัน export อยู่ในโมดูล TransactionsFrame / ProductsFrame
-การดีบักและปัญหาที่พบบ่อย
+⚠️ แนะนำให้เปลี่ยนรหัสผ่านทันทีหลังใช้งาน
 
-NameError สำหรับฟังก์ชันที่มี underscore นำหน้า: ให้ตรวจสอบว่า import ถูกต้อง (บางกรณี from shared import * อาจไม่ดึงชื่อที่ขึ้นต้นด้วย _)
-ตรวจสอบว่า virtualenv ถูก activate ก่อนรัน เพื่อใช้ไลบรารีที่ติดตั้งในโปรเจค
-ถ้ารันแล้วไม่มีฐานข้อมูล ให้ตรวจสอบสิทธิ์การเขียนไฟล์ในโฟลเดอร์โปรเจค
-คำสั่งช่วยเหลือที่มีประโยชน์
+🗄️ Database Schema (Overview)
 
-bash
+ตารางหลักในระบบ:
 
-# ตรวจสอบแพ็กเกจที่ติดตั้งใน venv
-source venv/bin/activate
-pip freeze
+users
+products
+categories
+suppliers
+sales
+sale_items
+purchase_orders
+transactions
+customers
+promotions
+refunds
+branches
+stock_transfers
+shifts
+🌐 Internationalization
 
-# เปิด SQLite DB
-sqlite3 stock.db
-# ตัวอย่าง: list tables
-.tables
-การพัฒนาเพิ่มเติม
+รองรับหลายภาษา:
 
-แยก UI/โลจิกให้เป็นโมดูลมากขึ้น
-เพิ่ม unit tests สำหรับ logic สำคัญ (เช่น next_number, audit, สต็อกอัพเดต)
-เพิ่มระบบ backup/restore ของ stock.db
-พิจารณาใช้ packaging (PyInstaller) สำหรับแจกจ่ายเป็นไฟล์ .exe/.AppImage
+🇹🇭 Thai (default)
+🇺🇸 English
+
+ตัวอย่างการใช้งาน:
+
+T("product_name")
+🎨 Theme Support
+Light Mode
+Dark Mode
+set_theme("dark")
+🔒 Security
+ใช้ SHA-256 สำหรับ hash password
+ไม่มีการเก็บรหัสผ่านแบบ plaintext
+🚀 Roadmap
+ รองรับ MySQL / PostgreSQL
+ REST API Backend
+ Web Version (React / Vue)
+ Cloud Sync
+ AI วิเคราะห์สต็อก
+🤝 Contributing
+
+Pull requests ยินดีต้อนรับ!
+สำหรับการเปลี่ยนแปลงใหญ่ กรุณาเปิด issue ก่อน
+
+📄 License
+
+MIT License
+
+👨‍💻 Author
+
+Developed by Your Name
+
+⭐ Support
+
+ถ้าคุณชอบโปรเจกต์นี้:
+
+⭐ Star บน GitHub
+🍴 Fork ไปใช้งาน
+🐛 แจ้ง Bug / เสนอ Feature
