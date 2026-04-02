@@ -55,9 +55,12 @@ Version:  v1.0.0
 > Full source code archive for developers and advanced users.
 
 
-Download (.zip):    [zip](https://github.com/Wichit-GT/Stock_Manager_Pro/blob/main/Version%201.zip)
-Download (.tar.xz): [tar](https://github.com/WichitGT/Stock_Manager_Pro/blob/main/Version%201.tar.xz)
+Download (.zip):    [Download zip](https://github.com/Wichit-GT/Stock_Manager_Pro/blob/main/Version%201.zip)
+
+Download (.tar.xz): [Download tar](https://github.com/WichitGT/Stock_Manager_Pro/blob/main/Version%201.tar.xz)
+
 Repository:         https://github.com/Wichit-GT/Stock_Manager_Pro
+
 Tag:                v1.0.0
 
  
