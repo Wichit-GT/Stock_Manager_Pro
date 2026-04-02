@@ -1,4 +1,4 @@
-Stock Manager Pro (SMP) — V1
+# Stock Manager Pro (SMP) — V1
 สรุป
 
 แอปจัดการสต็อกสินค้าแบบเดสก์ท็อปเขียนด้วย Python + Tkinter
