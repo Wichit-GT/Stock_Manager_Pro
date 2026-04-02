@@ -46,7 +46,7 @@ This release is fully tested and intended for day-to-day business operations.
  
 ```text
 Download: <link-to-exe>
-Platform: Windows / macOS / Linux
+Platform: Windows
 Version:  v1.0.0
 ```
  
