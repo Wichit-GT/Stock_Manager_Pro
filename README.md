@@ -46,7 +46,7 @@ This release is fully tested and intended for day-to-day business operations.
 
 ```text
 Download: <link-to-exe>
-Platform: Windows / macOS / Linux
+Platform: Windows
 Version:  v1.0.0
 ```
 
@@ -55,9 +55,12 @@ Version:  v1.0.0
 > Full source code archive for developers and advanced users.
 
 
-Download (.zip): https://github.com/Wichit-GT/Stock_Manager_Pro/blob/main/Version%201.zip
-Download (.tar.gz): https://github.com/Wichit-GT/Stock_Manager_Pro/blob/main/Version%201.tar.xz
+Download (.zip): <https://github.com/Wichit-GT/Stock_Manager_Pro/blob/main/Version%201.zip>
+
+Download (.tar.gz): <https://github.com/Wichit-GT/Stock_Manager_Pro/blob/main/Version%201.tar.xz>
+
 Repository: https://github.com/Wichit-GT/Stock_Manager_Pro
+
 Tag: v1.0.0
 
 
